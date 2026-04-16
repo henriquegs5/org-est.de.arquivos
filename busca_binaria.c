@@ -57,11 +57,11 @@ static int busca_binaria(FILE *f, long total_registros,
         int cmp = strncmp(cep_busca, resultado->cep, TAM_CEP);
  
         if (cmp == 0)
-            return 1;          /* encontrado */
+            return 1;          // encontrado
         else if (cmp < 0)
-            fim = meio - 1;    /* buscar na metade esquerda */
+            fim = meio - 1;    // buscar na metade esquerda
         else
-            inicio = meio + 1; /* buscar na metade direita  */
+            inicio = meio + 1; // buscar na metade direita
     }
     return 0;
 }
