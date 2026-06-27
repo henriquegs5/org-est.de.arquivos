@@ -1,9 +1,12 @@
 // para dar run no arquivo é so usar esse comando:
 // gcc Covid.c CSVParser.c -o Covid -lm
-//>> ./Covid
+//  ./Covid
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifdef _WIN32
+#include <windows.h>
+#endif
 #include "CSVParser.h"
 
 #define READ_BUF_SIZE 8192
@@ -67,6 +70,9 @@ void callback(char **cols, int ncols, void *userData)
 
 int main()
 {
+#ifdef _WIN32
+    SetConsoleOutputCP(CP_UTF8);
+#endif
     struct Acumulador acc;
     acc.linhaCount = 0;
     acc.headerPulado = 0;
